@@ -14,36 +14,37 @@ Public pages for **Lucky Scratch** iOS app — App Store, AdMob, and legal compl
 | **Technical Support URL** | https://swiftzhou.github.io/lucky-scratch-privacy/support.html |
 | **Privacy Policy URL** | https://swiftzhou.github.io/lucky-scratch-privacy/privacy/ |
 
+Legacy redirect: `/support/` → `/support.html`
+
 ---
 
-## Where to use these URLs
+## GitHub Pages setup (important)
 
-### App Store Connect
-- **Privacy Policy URL:** `.../privacy/`
-- **Support URL:** `.../support.html`
-- **Marketing URL** (optional): `.../` (root homepage)
+If new pages return **404**, GitHub Pages may not be redeploying from `main` + `/docs`. Use this setup:
 
-### Google AdMob (after App Store approval)
-When linking your iOS app in AdMob:
+### Step A — Enable Actions deploy (automatic)
+
+Every push to `main` runs `.github/workflows/deploy.yml` and updates the `gh-pages` branch.
+
+### Step B — Point Pages to gh-pages branch
+
+1. Open https://github.com/swiftZhou/lucky-scratch-privacy/settings/pages
+2. **Source:** Deploy from a branch
+3. **Branch:** `gh-pages` → **`/ (root)`**
+4. Click **Save**
+5. Wait 2–5 minutes, then test the URLs above
+
+### Alternative (manual docs deploy)
+
+If you prefer no Actions: Source = `main`, Folder = `/docs`, then click **Save** again after each push to force a rebuild.
+
+---
+
+## AdMob / App Store
+
 - **Marketing URL:** `https://swiftzhou.github.io/lucky-scratch-privacy/`
 - **Technical support URL:** `https://swiftzhou.github.io/lucky-scratch-privacy/support.html`
-
-Google crawls these pages to verify app name, bundle ID, and contact info.
-
-### iOS app (in-app)
-Privacy Policy link in Settings already points to `.../privacy/`.
-
----
-
-## After App Store approval
-
-Edit `docs/index.html` and replace the App Store search link with your real App Store URL:
-
-```html
-<a href="https://apps.apple.com/app/idYOUR_APP_ID">Download on the App Store</a>
-```
-
-Then commit and push.
+- **Privacy Policy URL:** `https://swiftzhou.github.io/lucky-scratch-privacy/privacy/`
 
 ---
 
@@ -51,16 +52,10 @@ Then commit and push.
 
 ```bash
 cd Legal/lucky-scratch-privacy
-# edit docs/index.html, docs/support/index.html, or docs/privacy/index.html
+# edit files under docs/
 git add .
-git commit -m "Update site content"
+git commit -m "Update site"
 git push
 ```
 
-Changes appear on GitHub Pages within a few minutes.
-
----
-
-## GitHub Pages setup
-
-**Settings → Pages** → Source: **Deploy from a branch** → Branch: `main` → Folder: **`/docs`**
+If using the Actions workflow, the site updates automatically after the workflow succeeds.
