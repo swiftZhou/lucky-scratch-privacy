@@ -2,61 +2,60 @@
 
 Hosted privacy policy for the **Lucky Scratch** iOS app.
 
-**Live URL (after setup):**  
-`https://<your-github-username>.github.io/lucky-scratch-privacy/privacy/`
+**Live URL:**  
+https://swiftzhou.github.io/lucky-scratch-privacy/privacy/
 
 **Contact:** zhouhaigame@outlook.com
 
 ---
 
-## 1. Create the GitHub repository
+## Enable GitHub Pages (required — do this once)
 
-1. Go to [github.com/new](https://github.com/new)
-2. Repository name: `lucky-scratch-privacy`
-3. Visibility: **Public** (required for free GitHub Pages)
-4. Do **not** add a README, `.gitignore`, or license (this folder already has them)
-5. Click **Create repository**
+The repo files are correct. Pages only works after you turn it on in GitHub settings.
 
-## 2. Push this folder to GitHub
+1. Open **Settings → Pages**:  
+   https://github.com/swiftZhou/lucky-scratch-privacy/settings/pages
 
-In Terminal, from this directory (`Legal/lucky-scratch-privacy`):
+2. Under **Build and deployment** → **Source**, choose:  
+   **Deploy from a branch**  
+   (Do **not** use “GitHub Actions” — that caused `deployment_queued` timeouts.)
 
-```bash
-cd Legal/lucky-scratch-privacy
+3. Under **Branch**:
+   - Branch: **`main`**
+   - Folder: **`/docs`**
+   - Click **Save**
 
-git init
-git add .
-git commit -m "Add Lucky Scratch privacy policy for GitHub Pages"
-git branch -M main
-git remote add origin https://github.com/<your-github-username>/lucky-scratch-privacy.git
-git push -u origin main
-```
+4. Wait 1–3 minutes. A green banner should show:  
+   `Your site is live at https://swiftzhou.github.io/lucky-scratch-privacy/`
 
-Replace `<your-github-username>` with your GitHub account name.
+5. Open the privacy page:  
+   https://swiftzhou.github.io/lucky-scratch-privacy/privacy/
 
-## 3. Enable GitHub Pages
+### If it still shows 404
 
-1. Open the repo on GitHub → **Settings** → **Pages**
-2. **Build and deployment** → Source: **Deploy from a branch**
-3. Branch: `main` → Folder: **`/docs`**
-4. Click **Save**
-5. Wait 1–3 minutes. Your site will be at:  
-   `https://<your-github-username>.github.io/lucky-scratch-privacy/privacy/`
+- Confirm **Source** is **Deploy from a branch**, not GitHub Actions.
+- Confirm folder is **`/docs`**, not `/ (root)`.
+- Repo must be **Public**.
+- Wait up to 10 minutes after first save, then hard-refresh the browser.
 
-## 4. Update the iOS app URL
+---
 
-In `SandArtASMR/Controllers/SettingsViewController.swift`, set `AppLinks.privacyPolicy` to your live Pages URL, for example:
+## iOS app URL
+
+Already set in the app:
 
 ```swift
-static let privacyPolicy = URL(string: "https://<your-github-username>.github.io/lucky-scratch-privacy/privacy/")!
+static let privacyPolicy = URL(string: "https://swiftZhou.github.io/lucky-scratch-privacy/privacy/")!
 ```
 
-Also paste the same URL in **App Store Connect** → App Privacy → Privacy Policy URL.
+Use the same URL in **App Store Connect** → Privacy Policy URL.
 
-## 5. Updating the policy
+---
 
-1. Edit `docs/privacy/index.html` (or sync from `../privacy-policy.html` in the parent `Legal` folder)
-2. Update the **Last updated** date at the top of the HTML
+## Updating the policy
+
+1. Edit `docs/privacy/index.html`
+2. Update the **Last updated** date
 3. Commit and push:
 
 ```bash
@@ -65,16 +64,4 @@ git commit -m "Update privacy policy"
 git push
 ```
 
-Changes usually appear on GitHub Pages within a few minutes.
-
----
-
-## Optional: custom domain
-
-If you own a domain (e.g. `sandartasmr.app`):
-
-1. Add a `CNAME` file in `docs/` containing your domain (e.g. `sandartasmr.app`)
-2. Configure DNS with your registrar (A/CNAME records per GitHub Pages docs)
-3. Enable **Enforce HTTPS** in repo **Settings** → **Pages**
-
-Then update the in-app URL to `https://yourdomain.com/privacy/`.
+Changes appear on GitHub Pages within a few minutes.
