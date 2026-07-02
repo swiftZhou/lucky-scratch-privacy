@@ -11,7 +11,7 @@ Public pages for **Lucky Scratch** iOS app — App Store, AdMob, and legal compl
 | Purpose | URL |
 |---------|-----|
 | **Marketing URL** (homepage) | https://swiftzhou.github.io/lucky-scratch-privacy/ |
-| **Technical Support URL** | https://swiftzhou.github.io/lucky-scratch-privacy/support/ |
+| **Technical Support URL** | https://swiftzhou.github.io/lucky-scratch-privacy/support.html |
 | **Privacy Policy URL** | https://swiftzhou.github.io/lucky-scratch-privacy/privacy/ |
 
 ---
@@ -20,13 +20,13 @@ Public pages for **Lucky Scratch** iOS app — App Store, AdMob, and legal compl
 
 ### App Store Connect
 - **Privacy Policy URL:** `.../privacy/`
-- **Support URL:** `.../support/`
+- **Support URL:** `.../support.html`
 - **Marketing URL** (optional): `.../` (root homepage)
 
 ### Google AdMob (after App Store approval)
 When linking your iOS app in AdMob:
 - **Marketing URL:** `https://swiftzhou.github.io/lucky-scratch-privacy/`
-- **Technical support URL:** `https://swiftzhou.github.io/lucky-scratch-privacy/support/`
+- **Technical support URL:** `https://swiftzhou.github.io/lucky-scratch-privacy/support.html`
 
 Google crawls these pages to verify app name, bundle ID, and contact info.
 
