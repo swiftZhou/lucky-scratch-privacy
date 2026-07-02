@@ -1,29 +1,36 @@
-# Lucky Scratch — Web Pages (GitHub Pages)
+# Lucky Scratch — GitHub Pages
 
 **Contact:** zhouhaigame@outlook.com
 
-## Live URLs
+## URLs
 
-| Purpose | URL |
-|---------|-----|
-| **Marketing URL** | https://swiftzhou.github.io/lucky-scratch-privacy/ |
-| **Technical Support URL** | https://swiftzhou.github.io/lucky-scratch-privacy/support.html |
-| **Privacy Policy URL** | https://swiftzhou.github.io/lucky-scratch-privacy/privacy/ |
+| Page | URL |
+|------|-----|
+| Marketing | https://swiftzhou.github.io/lucky-scratch-privacy/ |
+| Support | https://swiftzhou.github.io/lucky-scratch-privacy/support.html |
+| Privacy | https://swiftzhou.github.io/lucky-scratch-privacy/privacy/ |
 
-## GitHub Pages setup
+Backup support (if `support.html` is not live yet):  
+https://swiftzhou.github.io/lucky-scratch-privacy/privacy/#support
 
-**Settings → Pages**
+## Fix Pages timeout (important)
 
-- Source: **Deploy from a branch**
-- Branch: **`main`**
-- Folder: **`/ (root)`**
-- Save
+1. Open **Actions** and **Cancel** any running `pages build and deployment` workflows.
+2. Open **Settings → Pages**:
+   - Source: **Deploy from a branch**
+   - Branch: **`main`**
+   - Folder: **`/docs`**
+   - Save
+3. Wait 3–10 minutes, then open the Support URL above.
 
-Site files live at the **repository root** (`index.html`, `support.html`, `privacy/`, `css/`).
+Do **not** use GitHub Actions as the Pages source. All site files are in the `docs/` folder.
 
-After each `git push` to `main`, wait 1–3 minutes for the site to update.
+## Update site
 
-## AdMob
-
-- Marketing URL: `https://swiftzhou.github.io/lucky-scratch-privacy/`
-- Technical support URL: `https://swiftzhou.github.io/lucky-scratch-privacy/support.html`
+```bash
+cd Legal/lucky-scratch-privacy
+# edit files under docs/
+git add docs/
+git commit -m "Update site"
+git push origin main
+```
