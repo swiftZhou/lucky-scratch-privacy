@@ -1,67 +1,66 @@
-# Lucky Scratch — Privacy Policy (GitHub Pages)
+# Lucky Scratch — Web Pages (GitHub Pages)
 
-Hosted privacy policy for the **Lucky Scratch** iOS app.
-
-**Live URL:**  
-https://swiftzhou.github.io/lucky-scratch-privacy/privacy/
+Public pages for **Lucky Scratch** iOS app — App Store, AdMob, and legal compliance.
 
 **Contact:** zhouhaigame@outlook.com
 
 ---
 
-## Enable GitHub Pages (required — do this once)
+## Live URLs
 
-The repo files are correct. Pages only works after you turn it on in GitHub settings.
-
-1. Open **Settings → Pages**:  
-   https://github.com/swiftZhou/lucky-scratch-privacy/settings/pages
-
-2. Under **Build and deployment** → **Source**, choose:  
-   **Deploy from a branch**  
-   (Do **not** use “GitHub Actions” — that caused `deployment_queued` timeouts.)
-
-3. Under **Branch**:
-   - Branch: **`main`**
-   - Folder: **`/docs`**
-   - Click **Save**
-
-4. Wait 1–3 minutes. A green banner should show:  
-   `Your site is live at https://swiftzhou.github.io/lucky-scratch-privacy/`
-
-5. Open the privacy page:  
-   https://swiftzhou.github.io/lucky-scratch-privacy/privacy/
-
-### If it still shows 404
-
-- Confirm **Source** is **Deploy from a branch**, not GitHub Actions.
-- Confirm folder is **`/docs`**, not `/ (root)`.
-- Repo must be **Public**.
-- Wait up to 10 minutes after first save, then hard-refresh the browser.
+| Purpose | URL |
+|---------|-----|
+| **Marketing URL** (homepage) | https://swiftzhou.github.io/lucky-scratch-privacy/ |
+| **Technical Support URL** | https://swiftzhou.github.io/lucky-scratch-privacy/support/ |
+| **Privacy Policy URL** | https://swiftzhou.github.io/lucky-scratch-privacy/privacy/ |
 
 ---
 
-## iOS app URL
+## Where to use these URLs
 
-Already set in the app:
+### App Store Connect
+- **Privacy Policy URL:** `.../privacy/`
+- **Support URL:** `.../support/`
+- **Marketing URL** (optional): `.../` (root homepage)
 
-```swift
-static let privacyPolicy = URL(string: "https://swiftZhou.github.io/lucky-scratch-privacy/privacy/")!
+### Google AdMob (after App Store approval)
+When linking your iOS app in AdMob:
+- **Marketing URL:** `https://swiftzhou.github.io/lucky-scratch-privacy/`
+- **Technical support URL:** `https://swiftzhou.github.io/lucky-scratch-privacy/support/`
+
+Google crawls these pages to verify app name, bundle ID, and contact info.
+
+### iOS app (in-app)
+Privacy Policy link in Settings already points to `.../privacy/`.
+
+---
+
+## After App Store approval
+
+Edit `docs/index.html` and replace the App Store search link with your real App Store URL:
+
+```html
+<a href="https://apps.apple.com/app/idYOUR_APP_ID">Download on the App Store</a>
 ```
 
-Use the same URL in **App Store Connect** → Privacy Policy URL.
+Then commit and push.
 
 ---
 
-## Updating the policy
-
-1. Edit `docs/privacy/index.html`
-2. Update the **Last updated** date
-3. Commit and push:
+## Updating content
 
 ```bash
-git add docs/privacy/index.html
-git commit -m "Update privacy policy"
+cd Legal/lucky-scratch-privacy
+# edit docs/index.html, docs/support/index.html, or docs/privacy/index.html
+git add .
+git commit -m "Update site content"
 git push
 ```
 
 Changes appear on GitHub Pages within a few minutes.
+
+---
+
+## GitHub Pages setup
+
+**Settings → Pages** → Source: **Deploy from a branch** → Branch: `main` → Folder: **`/docs`**
