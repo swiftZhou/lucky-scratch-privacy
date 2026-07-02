@@ -1,61 +1,29 @@
 # Lucky Scratch — Web Pages (GitHub Pages)
 
-Public pages for **Lucky Scratch** iOS app — App Store, AdMob, and legal compliance.
-
 **Contact:** zhouhaigame@outlook.com
-
----
 
 ## Live URLs
 
 | Purpose | URL |
 |---------|-----|
-| **Marketing URL** (homepage) | https://swiftzhou.github.io/lucky-scratch-privacy/ |
+| **Marketing URL** | https://swiftzhou.github.io/lucky-scratch-privacy/ |
 | **Technical Support URL** | https://swiftzhou.github.io/lucky-scratch-privacy/support.html |
 | **Privacy Policy URL** | https://swiftzhou.github.io/lucky-scratch-privacy/privacy/ |
 
-Legacy redirect: `/support/` → `/support.html`
+## GitHub Pages setup
 
----
+**Settings → Pages**
 
-## GitHub Pages setup (important)
+- Source: **Deploy from a branch**
+- Branch: **`main`**
+- Folder: **`/ (root)`**
+- Save
 
-If new pages return **404**, GitHub Pages may not be redeploying from `main` + `/docs`. Use this setup:
+Site files live at the **repository root** (`index.html`, `support.html`, `privacy/`, `css/`).
 
-### Step A — Enable Actions deploy (automatic)
+After each `git push` to `main`, wait 1–3 minutes for the site to update.
 
-Every push to `main` runs `.github/workflows/deploy.yml` and updates the `gh-pages` branch.
+## AdMob
 
-### Step B — Point Pages to gh-pages branch
-
-1. Open https://github.com/swiftZhou/lucky-scratch-privacy/settings/pages
-2. **Source:** Deploy from a branch
-3. **Branch:** `gh-pages` → **`/ (root)`**
-4. Click **Save**
-5. Wait 2–5 minutes, then test the URLs above
-
-### Alternative (manual docs deploy)
-
-If you prefer no Actions: Source = `main`, Folder = `/docs`, then click **Save** again after each push to force a rebuild.
-
----
-
-## AdMob / App Store
-
-- **Marketing URL:** `https://swiftzhou.github.io/lucky-scratch-privacy/`
-- **Technical support URL:** `https://swiftzhou.github.io/lucky-scratch-privacy/support.html`
-- **Privacy Policy URL:** `https://swiftzhou.github.io/lucky-scratch-privacy/privacy/`
-
----
-
-## Updating content
-
-```bash
-cd Legal/lucky-scratch-privacy
-# edit files under docs/
-git add .
-git commit -m "Update site"
-git push
-```
-
-If using the Actions workflow, the site updates automatically after the workflow succeeds.
+- Marketing URL: `https://swiftzhou.github.io/lucky-scratch-privacy/`
+- Technical support URL: `https://swiftzhou.github.io/lucky-scratch-privacy/support.html`
